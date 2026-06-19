@@ -18,7 +18,7 @@ async function loadData() {
 
     const mappingResponse =
         await fetch(
-            "http://127.0.0.1:8000/team-mapping"
+            "/team-mapping"
         );
 
     mapping =
@@ -26,7 +26,7 @@ async function loadData() {
 
     const tlResponse =
         await fetch(
-            "http://127.0.0.1:8000/team-leaders"
+            "/team-leaders"
         );
 
     teamLeaders =
@@ -261,7 +261,7 @@ async function saveData() {
 
     await fetch(
 
-        "http://127.0.0.1:8000/team-leaders",
+        "/team-leaders",
 
         {
             method: "POST",
@@ -279,7 +279,7 @@ async function saveData() {
 
     await fetch(
 
-        "http://127.0.0.1:8000/team-mapping",
+        "/team-mapping",
 
         {
             method: "POST",
