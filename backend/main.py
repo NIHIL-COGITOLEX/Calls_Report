@@ -25,13 +25,6 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-def home():
-
-    return {
-        "message": "Backend Working"
-    }
-
 
 @app.post("/upload")
 async def upload_file(
