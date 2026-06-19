@@ -3,6 +3,8 @@ from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 
+from fastapi.staticfiles import StaticFiles
+
 from services.parser import process_callyzer
 
 from team_mapping import (
@@ -92,3 +94,13 @@ def update_team_leaders(
     return {
         "success": True
     }
+
+
+app.mount(
+    "/",
+    StaticFiles(
+        directory="../frontend",
+        html=True
+    ),
+    name="frontend"
+)
