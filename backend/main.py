@@ -1,9 +1,10 @@
 from fastapi import FastAPI, UploadFile, File, Body
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
-import pandas as pd
-
 from fastapi.staticfiles import StaticFiles
+from pathlib import Path
+
+import pandas as pd
 
 from services.parser import process_callyzer
 
@@ -23,7 +24,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 
 @app.post("/upload")
@@ -69,6 +69,7 @@ def update_team_mapping(
         "success": True
     }
 
+
 @app.get("/team-leaders")
 def get_team_leaders():
 
@@ -89,11 +90,19 @@ def update_team_leaders(
     }
 
 
-# app.mount(
-#     "/",
-#     StaticFiles(
-#         directory="../frontend",
-#         html=True
-#     ),
-#     name="frontend"
-# )
+frontend_dir = (
+    Path(__file__).resolve().parent.parent
+    / "frontend"
+)
+
+print("Frontend Path:", frontend_dir)
+print("Frontend Exists:", frontend_dir.exists())
+
+app.mount(
+    "/",
+    StaticFiles(
+        directory=str(frontend_dir),
+        html=True
+    ),
+    name="frontend"
+)
