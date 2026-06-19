@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --red: #ff1e2d;
+
+    --red-dark: #c70016;
+
+    --border:
+        rgba(255, 255, 255, .08);
+}
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at top right,
+            rgba(255, 30, 45, .22),
+            transparent 25%),
+
+        radial-gradient(circle at bottom left,
+            rgba(255, 30, 45, .14),
+            transparent 22%),
+
+        linear-gradient(135deg,
+            #000,
+            #090909,
+            #0d0d0d);
+
+    color: white;
+
+    padding: 30px;
+}
+
+.container {
+
+    max-width: 1300px;
+
+    margin: auto;
+}
+
+h1 {
+
+    text-align: center;
+
+    font-size: 36px;
+
+    font-weight: 800;
+
+    margin-bottom: 30px;
+}
+
+h2 {
+
+    color: var(--red);
+
+    margin-top: 25px;
+
+    margin-bottom: 15px;
+
+    font-size: 22px;
+}
+
+hr {
+
+    border: none;
+
+    height: 1px;
+
+    background:
+        rgba(255, 255, 255, .08);
+
+    margin: 30px 0;
+}
+
+#addEmployee,
+#addTL,
+#saveBtn {
+
+    padding: 14px 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(135deg,
+            var(--red),
+            var(--red-dark));
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+#addEmployee:hover,
+#addTL:hover,
+#saveBtn:hover {
+
+    transform:
+        translateY(-1px);
+}
+
+#addEmployee,
+#addTL {
+
+    margin-bottom: 20px;
+}
+
+#saveBtn {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    font-size: 15px;
+}
+
+.employee {
+
+    background:
+        linear-gradient(145deg,
+            #111,
+            #0a0a0a);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 2fr 120px;
+
+    gap: 12px;
+}
+
+.employee input,
+.employee select {
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid var(--border);
+
+    background: #111;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.employee input:focus,
+.employee select:focus {
+
+    border-color:
+        rgba(255, 30, 45, .6);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 30, 45, .12);
+}
+
+/* ========================= */
+/* DELETE BUTTON */
+/* ========================= */
+
+.employee button {
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg,
+            #ff3b3b,
+            #b60000);
+
+    transition: .2s;
+}
+
+.employee button:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 5px 15px rgba(255, 0, 0, .25);
+}
+
+/* ========================= */
+/* TEAM LEADER ROWS */
+/* ========================= */
+
+#tlList .employee {
+
+    grid-template-columns:
+        1fr 120px;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:900px) {
+
+    .employee {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    #tlList .employee {
+
+        grid-template-columns:
+            1fr;
+    }
+}
